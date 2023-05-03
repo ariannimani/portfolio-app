@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { ThemeProvider, ThemeChanger } from "./components";
+import { ThemeProvider, ThemeChanger } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Night Mode",
