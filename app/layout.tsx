@@ -16,7 +16,7 @@ export default function RootLayout({
     <html>
       <body>
         <ThemeProvider>
-          <div className="overflow-x-hidden">
+          <div className="overflow-x-hidden select-none">
             <ThemeChanger />
             {children}
           </div>

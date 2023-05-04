@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply dark:bg-gray-900 bg-neutral-200;
+    @apply dark:bg-gray-d bg-gray-sl;
   }
 }

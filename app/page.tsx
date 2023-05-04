@@ -1,15 +1,35 @@
-import Image from "next/image";
-import { Inter, Roboto } from "next/font/google";
+import { Footer, ProfileInfo, Tabs } from "./components";
+import { Portfolio, Skills, Experience } from "@/components/tabs/components";
 
-const roboto = Roboto({
-  weight: "900",
-  subsets: ["latin"],
-});
+const tabs = [
+  { value: "portfolio", label: "Portfolio" },
+  { value: "skills", label: "Skills" },
+  { value: "experience", label: "Experience" },
+];
+const tabContents = [
+  {
+    tabValue: "portfolio",
+    component: Portfolio,
+    data: ["test"],
+  },
+  {
+    tabValue: "skills",
+    component: Skills,
+    data: ["test"],
+  },
+  {
+    tabValue: "experience",
+    component: Experience,
+    data: ["test"],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="text-blue-900 text-3xl font-extrabold dark:text-yellow-300 w-full min-h-screen">
-      Hello World!
+    <div className="w-full min-h-screen flex flex-col items-center gap-8">
+      <ProfileInfo />
+      <Tabs tabs={tabs} tabContents={tabContents} />
+      <Footer />
     </div>
   );
 }
