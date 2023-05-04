@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import profile from "@/assets/images/profilePicture.png";
+import profile from "@/assets/images/profilePicture.jpg";
 
 const ProfileImage = () => {
   return (

@@ -4,12 +4,18 @@ interface ButtonProps {
   children: React.ReactNode;
   type?: "primary" | "secondary";
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  active?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ children, type, onClick, ...props }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  type,
+  onClick,
+  active,
+  ...props
+}) => {
   const baseClasses = "px-8 py-3 rounded-lg font-medium w-full";
   let classes = "";
-  let active = false;
 
   switch (type) {
     case "primary":

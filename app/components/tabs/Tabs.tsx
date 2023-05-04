@@ -1,29 +1,30 @@
-import React, { FC } from "react";
+"use client";
+import React, { useState } from "react";
 import Button from "../button/Button";
+import { Portfolio, Skills, Experience } from "@/components/tabs/components";
 
-export interface TabsProps {
-  value: string;
-  label: string;
-}
+const tabs = [
+  { value: "portfolio", label: "Portfolio" },
+  { value: "skills", label: "Skills" },
+  //{ value: "experience", label: "Experience" },
+];
+const tabContents = [
+  {
+    tabValue: "portfolio",
+    component: Portfolio,
+  },
+  {
+    tabValue: "skills",
+    component: Skills,
+  },
+  //{
+  //  tabValue: "experience",
+  //  component: Experience,
+  //},
+];
 
-export interface TabContent {
-  tabValue: string;
-  component: React.FC<any>;
-  data: string[];
-}
-
-interface MovieTabsProps {
-  tabs: TabsProps[];
-  tabContents: TabContent[];
-}
-
-const Tabs: FC<MovieTabsProps> = ({ tabs, tabContents }) => {
-  //   const [activeTab, setActiveTab] = useState(tabs[0].value);
-  let activeTab = tabs[0].value;
-  const handleTabClick = (tab: string) => {
-    console.log({ tab });
-    // activeTab = tabs[1].value;
-  };
+const Tabs = () => {
+  const [activeTab, setActiveTab] = useState(tabs[0].value);
 
   const activeTabContent = tabContents.find((tc) => tc.tabValue === activeTab);
 
@@ -31,21 +32,24 @@ const Tabs: FC<MovieTabsProps> = ({ tabs, tabContents }) => {
     throw new Error(`No tab content found for ${activeTab} tab`);
   }
 
-  const ActiveTabComponent = activeTabContent.component;
+  const ActiveTabComponent: React.FC<any> = activeTabContent.component;
 
   return (
     <div className="mt-6 w-fit">
-      <ul className="flex justify-between gap-3 p-4 dark:bg-gray-dl bg-white-c rounded-2xl">
+      <ul className="flex justify-between gap-3 w-[27rem] md:w-[42rem] p-4 dark:bg-gray-dl bg-white-c rounded-2xl">
         {tabs.map((tab) => (
           <li key={tab.value} className="w-full h-12">
-            <Button>{tab.label}</Button>
+            <Button
+              onClick={() => setActiveTab(tab.value)}
+              active={tab.value === activeTab}
+            >
+              {tab.label}
+            </Button>
           </li>
         ))}
       </ul>
       <div className="tab-content">
-        <ActiveTabComponent
-          {...{ data: activeTabContent.data }} //, setActiveTab }}
-        />
+        <ActiveTabComponent {...{ setActiveTab }} />
       </div>
     </div>
   );

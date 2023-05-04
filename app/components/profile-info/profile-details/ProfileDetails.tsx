@@ -1,12 +1,14 @@
-import Contact from "@/components/contact/Contact";
-import React from "react";
+import React, { FC } from "react";
 import { BsGithub, BsLinkedin, BsInstagram } from "react-icons/bs";
 
-const ProfileDetails = () => {
+interface ProfileDetailsProps {
+  name: string;
+}
+const ProfileDetails: FC<ProfileDetailsProps> = ({ name }) => {
   return (
     <div className="mt-12 flex flex-col gap-4 items-center">
       <div className="text-3xl md:text-4xl dark:text-gray-ul text-gray-sd">
-        Arian Nimani
+        {name}
       </div>
       <div className="text-base md:text-xl	dark:text-gray-l text-gray-uld">
         React Developer
