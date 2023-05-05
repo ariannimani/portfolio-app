@@ -1,31 +1,39 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import Button from "../button/Button";
 import { Portfolio, Skills, Experience } from "@/components/tabs/components";
+import { ProjectProps, SkillProps } from "@/types/dataTypes";
+import { sortById } from "@/utils";
 
-const tabs = [
-  { value: "portfolio", label: "Portfolio" },
-  { value: "skills", label: "Skills" },
-  //{ value: "experience", label: "Experience" },
-];
-const tabContents = [
-  {
-    tabValue: "portfolio",
-    component: Portfolio,
-  },
-  {
-    tabValue: "skills",
-    component: Skills,
-  },
-  //{
-  //  tabValue: "experience",
-  //  component: Experience,
-  //},
-];
+interface TabsProps {
+  projects: ProjectProps[] | undefined;
+  skills: SkillProps[] | undefined;
+}
+const Tabs: FC<TabsProps> = ({ projects, skills }) => {
+  const tabs = [
+    { value: "portfolio", label: "Portfolio" },
+    { value: "skills", label: "Skills" },
+    //{ value: "experience", label: "Experience" },
+  ];
+  const tabContents = [
+    {
+      tabValue: "portfolio",
+      component: Portfolio,
+      data: projects ? sortById(projects) : [],
+    },
+    {
+      tabValue: "skills",
+      component: Skills,
+      data: skills,
+    },
+    //{
+    //  tabValue: "experience",
+    //  component: Experience,
+    //  data:experience
+    //},
+  ];
 
-const Tabs = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].value);
-
   const activeTabContent = tabContents.find((tc) => tc.tabValue === activeTab);
 
   if (!activeTabContent) {
@@ -49,7 +57,9 @@ const Tabs = () => {
         ))}
       </ul>
       <div className="tab-content">
-        <ActiveTabComponent {...{ setActiveTab }} />
+        <ActiveTabComponent
+          {...{ data: activeTabContent.data, setActiveTab }}
+        />
       </div>
     </div>
   );

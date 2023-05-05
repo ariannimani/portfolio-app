@@ -1,15 +1,16 @@
 import { SkillsCard } from "@/components/cards";
-import React from "react";
+import { SkillProps } from "@/types/dataTypes";
+import React, { FC } from "react";
 
-const Skills = () => {
+interface SkillsProps {
+  data: SkillProps[];
+}
+const Skills: FC<SkillsProps> = ({ data }) => {
   return (
     <div className="mt-8 grid grid-cols-3 md:grid-cols-4 gap-y-8 gap-x-6 justify-center">
-      <SkillsCard />
-      <SkillsCard />
-      <SkillsCard />
-      <SkillsCard />
-      <SkillsCard />
-      <SkillsCard />
+      {data.map((skill) => (
+        <SkillsCard key={skill.id} skill={skill} />
+      ))}
     </div>
   );
 };

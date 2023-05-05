@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { ThemeProvider, ThemeChanger } from "@/components";
+import { ThemeChanger } from "@/components";
+import { ThemeProvider, ReduxProvider } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: "Create Night Mode",
@@ -15,12 +16,14 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <ThemeProvider>
-          <div className="overflow-x-hidden select-none">
-            <ThemeChanger />
-            {children}
-          </div>
-        </ThemeProvider>
+        <ReduxProvider>
+          <ThemeProvider>
+            <div className="overflow-x-hidden select-none">
+              <ThemeChanger />
+              {children}
+            </div>
+          </ThemeProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

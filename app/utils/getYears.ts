@@ -4,9 +4,9 @@ export function getYears(timestamp: number) {
   const years = today.getFullYear() - date.getFullYear();
   const months = today.getMonth() - date.getMonth();
 
-  if (months < 0 || (months === 0 && today.getDate() < date.getDate())) {
-    return `${years}+`;
-  } else {
-    return years;
-  }
+  // if (months < 0 || (months === 0 && today.getDate() < date.getDate())) {
+  //   return `${years}+`;
+  // } else {
+  return `${years}+`;
+  // }
 }

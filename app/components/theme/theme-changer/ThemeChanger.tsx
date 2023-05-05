@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { useTheme } from "next-themes";
 
-const Themechanger = () => {
+const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -29,4 +29,4 @@ const Themechanger = () => {
   );
 };
 
-export default Themechanger;
+export default ThemeChanger;

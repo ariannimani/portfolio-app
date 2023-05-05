@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config";
+import { PortfolioData } from "@/types/dataTypes";
 
 const dataCollectionRef = collection(db, "portfolio");
 

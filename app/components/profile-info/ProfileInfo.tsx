@@ -1,28 +1,15 @@
-import React, { FC } from "react";
+import React from "react";
 import { ProfileButtons, ProfileDetails, ProfileFacts, ProfileImage } from "./";
 
-interface ProfileInfoProps {
-  name: string;
-  dateStartedWorking: number;
-  dateStartedDeveloper: number;
-  totalProjects: number;
-}
-const ProfileInfo: FC<ProfileInfoProps> = ({
-  name,
-  dateStartedWorking,
-  dateStartedDeveloper,
-  totalProjects,
-}) => {
+const ProfileInfo = () => {
   return (
     <>
       <div className="flex flex-col md:gap-10 md:flex-row">
         <ProfileImage />
-        <ProfileDetails {...{ name }} />
+        <ProfileDetails />
       </div>
       <div className="flex flex-col gap-8">
-        <ProfileFacts
-          {...{ dateStartedWorking, dateStartedDeveloper, totalProjects }}
-        />
+        <ProfileFacts />
         <ProfileButtons />
       </div>
     </>
