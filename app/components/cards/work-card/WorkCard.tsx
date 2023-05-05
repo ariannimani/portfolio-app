@@ -12,7 +12,7 @@ const WorkCard: FC<WorkCardProps> = ({ job }) => {
   return (
     <div className="text-base	 md:text-xl">
       <div className="text-xl md:text-2xl">{getYears(startDate)}</div>
-      <div className="break-normal w-60">{description}</div>
+      <div className="md:break-normal md:w-60">{description}</div>
     </div>
   );
 };
