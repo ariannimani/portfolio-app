@@ -5,7 +5,7 @@ import { getDataFromFirebase } from "~/firebase/getData";
 const ProfileInfo = async () => {
   const data = await getDataFromFirebase();
 
-  if (!data) <></>;
+  if (!data) return <></>;
   const { cvLink } = data;
 
   return (

@@ -4,7 +4,7 @@ import { getDataFromFirebase } from "../firebase/getData";
 export default async function Home() {
   const data = await getDataFromFirebase();
 
-  if (!data) <></>;
+  if (!data) return <></>;
   const { projects, skills } = data;
 
   return (

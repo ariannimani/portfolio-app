@@ -5,7 +5,7 @@ import { getDataFromFirebase } from "~/firebase/getData";
 const ProfileImage = async () => {
   const data = await getDataFromFirebase();
 
-  if (!data) <></>;
+  if (!data) return <></>;
   const { image } = data;
 
   return (
