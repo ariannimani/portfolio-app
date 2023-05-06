@@ -4,7 +4,10 @@ import { WorkProps } from "@/types/dataTypes";
 import { getDataFromFirebase } from "~/firebase/getData";
 
 const ProfileFacts = async () => {
-  const { work, projects } = await getDataFromFirebase();
+  const data = await getDataFromFirebase();
+
+  if (!data) <></>;
+  const { work, projects } = data;
   const totalProjects = projects.length;
 
   return (

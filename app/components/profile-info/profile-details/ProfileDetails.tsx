@@ -4,7 +4,10 @@ import { SocialProps } from "@/types/dataTypes";
 import { getDataFromFirebase } from "~/firebase/getData";
 
 const ProfileDetails = async () => {
-  const { name, profession, social } = await getDataFromFirebase();
+  const data = await getDataFromFirebase();
+
+  if (!data) <></>;
+  const { name, profession, social } = data;
 
   return (
     <div className="mt-12 flex flex-col gap-4 items-center">

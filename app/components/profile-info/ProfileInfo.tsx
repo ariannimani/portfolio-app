@@ -3,7 +3,10 @@ import { ProfileButtons, ProfileDetails, ProfileFacts, ProfileImage } from "./";
 import { getDataFromFirebase } from "~/firebase/getData";
 
 const ProfileInfo = async () => {
-  const { cvLink } = await getDataFromFirebase();
+  const data = await getDataFromFirebase();
+
+  if (!data) <></>;
+  const { cvLink } = data;
 
   return (
     <>
