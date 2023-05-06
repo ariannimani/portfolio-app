@@ -14,7 +14,8 @@ const Button: FC<ButtonProps> = ({
   active,
   ...props
 }) => {
-  const baseClasses = "px-8 py-3 rounded-lg font-medium w-full";
+  const baseClasses =
+    "px-8 py-3 rounded-lg font-medium w-full whitespace-nowrap";
   let classes = "";
 
   switch (type) {

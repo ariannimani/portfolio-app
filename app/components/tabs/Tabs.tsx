@@ -44,7 +44,7 @@ const Tabs: FC<TabsProps> = ({ projects, skills }) => {
 
   return (
     <div className="mt-6 w-fit">
-      <ul className="flex justify-between gap-3 w-[27rem] md:w-[42rem] p-4 dark:bg-gray-dl bg-white-c rounded-2xl">
+      <ul className="flex justify-between gap-3 w-auto max-w-[42rem] p-4 dark:bg-gray-dl bg-white-c rounded-2xl">
         {tabs.map((tab) => (
           <li key={tab.value} className="w-full h-12">
             <Button

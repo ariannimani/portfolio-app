@@ -1,10 +1,11 @@
-import { SocialCard } from "@/components/cards";
-import { store } from "../../../redux/store";
 import React from "react";
+import { SocialCard } from "@/components/cards";
 import { SocialProps } from "@/types/dataTypes";
+import { getDataFromFirebase } from "~/firebase/getData";
 
-const ProfileDetails = () => {
-  const { name, profession, social } = store.getState().data.data[0];
+const ProfileDetails = async () => {
+  const { name, profession, social } = await getDataFromFirebase();
+
   return (
     <div className="mt-12 flex flex-col gap-4 items-center">
       <div className="text-3xl md:text-4xl dark:text-gray-ul text-gray-sd">

@@ -18,7 +18,7 @@ const ProfileButtons: FC<ProfileButtons> = ({ link }) => {
 
   return (
     <>
-      <div className="flex gap-4 justify-center m-auto mt-4 w-96">
+      <div className="flex gap-4 justify-center m-auto mt-4 w-fit md:w-96">
         <Button type="primary" onClick={handleClick}>
           Download CV
         </Button>
