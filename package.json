@@ -1,12 +1,12 @@
 {
   "name": "portfolio-app",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 3005",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@formspree/react": "^2.4.1",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "gh-pages": "^5.0.0"
   }
 }
