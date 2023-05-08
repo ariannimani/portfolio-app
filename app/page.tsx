@@ -1,17 +1,21 @@
 import { Footer, ProfileInfo, Tabs } from "./components";
 import { getDataFromFirebase } from "../firebase/getData";
 
-export default async function Home() {
+async function getData() {
   const data = await getDataFromFirebase();
+  return data;
+}
 
-  //if (!data) return <></>;
-  //const { projects, skills } = data;
+export default async function Home() {
+  const data = await getData();
+
+  const { projects, skills } = data;
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center gap-8">
       {/* @ts-expect-error Server Component */}
       <ProfileInfo />
-      {/*<Tabs projects={data.projects} skills={data.skills} />*/}
+      <Tabs projects={projects} skills={skills} />
       <Footer />
     </div>
   );

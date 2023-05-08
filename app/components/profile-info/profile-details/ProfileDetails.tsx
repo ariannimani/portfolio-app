@@ -6,7 +6,6 @@ import { getDataFromFirebase } from "~/firebase/getData";
 const ProfileDetails = async () => {
   const data = await getDataFromFirebase();
 
-  if (!data) return <></>;
   const { name, profession, social } = data;
 
   return (

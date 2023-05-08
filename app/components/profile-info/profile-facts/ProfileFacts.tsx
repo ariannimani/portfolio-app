@@ -6,7 +6,6 @@ import { getDataFromFirebase } from "~/firebase/getData";
 const ProfileFacts = async () => {
   const data = await getDataFromFirebase();
 
-  if (!data) return <></>;
   const { work, projects } = data;
   const totalProjects = projects.length;
 
